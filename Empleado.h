@@ -18,7 +18,7 @@ public:
     // Constructor
     Empleado(int i = 0, std::string n = "", double salBase = 0.0);
 
-    // Métodos
+    // MÃ©todos
     int getId();
     void setId(int i);
 
@@ -40,7 +40,7 @@ public:
     // Calculo del salario final
     double calcularSalarioFinal();
 
-    // Método para aumentar únicamente los bonos y actualizar el salario final
+    // MÃ©todo para aumentar Ãºnicamente los bonos y actualizar el salario final
     void aumentarBonos(double aumentoBono);
     
     
@@ -108,7 +108,5 @@ double Empleado::calcularSalarioFinal() {
 void Empleado::aumentarBonos(double aumentoBono) {
     bono += aumentoBono;
 }
-
-
 
 
