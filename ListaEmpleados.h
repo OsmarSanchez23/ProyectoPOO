@@ -16,8 +16,9 @@ public:
     // Constructor
     ListaEmpleados();
 
-    // Métodos
+    // MÃ©todos
     void agregarEmpleado(const Empleado& nuevoEmpleado);
+    void consultarTodosEmpleados();
     void consultarEmpleadoPorID(int id);
     void modificarEmpleadoPorID(int id);
     void eliminarEmpleadoPorID(int id);
@@ -46,6 +47,26 @@ void ListaEmpleados::agregarEmpleado(const Empleado& nuevoEmpleado) {
     }
 }
 
+void ListaEmpleados::consultarTodosEmpleados() {
+    if (numEmpleados == 0) {
+        std::cout << "No hay empleados registrados." << std::endl;
+        return;
+    }
+
+    std::cout << "Informacion de todos los empleados:" << std::endl;
+
+    for (int i = 0; i < numEmpleados; i++) {
+        std::cout << "ID: " << empleados[i].getId() << std::endl;
+        std::cout << "Nombre: " << empleados[i].getNombre() << std::endl;
+        std::cout << "Salario Base: $" << empleados[i].getSalarioBase() << std::endl;
+        std::cout << "Bono: $" << empleados[i].getBono() << std::endl;
+        std::cout << "Horas Extras: " << empleados[i].getHorasExtras() << " horas" << std::endl;
+        std::cout << "Deducciones: $" << empleados[i].getDeducciones() << std::endl;
+        std::cout << "Salario Final: $" << empleados[i].calcularSalarioFinal() << std::endl;
+        std::cout << "-----------------------------" << std::endl;
+    }
+}
+
 void ListaEmpleados::consultarEmpleadoPorID(int id) {
     for (int i = 0; i < numEmpleados; i++) {
         if (empleados[i].getId() == id) {
@@ -66,7 +87,7 @@ void ListaEmpleados::consultarEmpleadoPorID(int id) {
 void ListaEmpleados::modificarEmpleadoPorID(int id) {
     for (int i = 0; i < numEmpleados; i++) {
         if (empleados[i].getId() == id) {
-            std::cout << "Empleado encontrado. ¿Que deseas modificar?" << std::endl;
+            std::cout << "Empleado encontrado. Â¿Que deseas modificar?" << std::endl;
             std::cout << "1. Nombre" << std::endl;
             std::cout << "2. Salario Base" << std::endl;
 
@@ -145,7 +166,7 @@ void ListaEmpleados::agregarHorasExtrasPorID(int id, double horasExtras) {
         }
     }
 
-    std::cout << "No se encontró ningún empleado con el ID " << id << "." << std::endl;
+    std::cout << "No se encontrÃ³ ningÃºn empleado con el ID " << id << "." << std::endl;
 }
 
 void ListaEmpleados::aplicarDeduccionesPorID(int id, double deducciones) {
@@ -157,5 +178,5 @@ void ListaEmpleados::aplicarDeduccionesPorID(int id, double deducciones) {
         }
     }
 
-    std::cout << "No se encontró ningún empleado con el ID " << id << "." << std::endl;
+    std::cout << "No se encontrÃ³ ningÃºn empleado con el ID " << id << "." << std::endl;
 }
