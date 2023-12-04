@@ -1,3 +1,7 @@
+//liga del repositorio: https://github.com/OsmarSanchez23/ProyectoPOO
+
+//Equipo: Diego de la Vega y Osmar Sanchez
+
 #include <iostream>
 #include <string>
 #include "admins.h"
@@ -33,7 +37,7 @@ int main(){
 			do {
 			//Menu de empleados con todos sus metodos
 			cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Gestion de Empleados >>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n";
-			cout << "Selecciona una opcion: \na)Agregar Nuevo Empleado \nb)Consultar Individual de Empleado \nc)Agregar Bonos \nd)Agregar horas extras \ne)Modificar \nf)Agregar Deducciones \ng)Eliminar \nh)Salir\n";
+			cout << "Selecciona una opcion: \na)Agregar Nuevo Empleado \nb)Consultar Individual de Empleado \nc) Consultar todos \nd)Agregar Bonos \ne)Agregar horas extras \nf)Modificar \ng)Agregar Deducciones \nh)Eliminar \ni)Salir\n";
 			cin >> opcion;
 			switch(opcion){
 				case 'a': {
@@ -63,7 +67,12 @@ int main(){
                     listaEmpleados.consultarEmpleadoPorID(idConsulta);
 					break;
 				}
-				case 'c':{
+				case 'c': {
+            	// Consultar todos los empleados
+            	listaEmpleados.consultarTodosEmpleados();
+            	break;
+       			}
+				case 'd':{
 					int idBono;
                     double bono;
                     cout << "Ingrese el ID del empleado al que desea agregar bonos: ";
@@ -74,7 +83,7 @@ int main(){
                     listaEmpleados.aumentarBonosPorID(idBono, bono);
 					break;
 				}
-				case 'd':{
+				case 'e':{
 					int id;
                 	double horasExtras;
                 	cout << "Ingrese el ID del empleado para agregar horas extras: ";
@@ -85,7 +94,7 @@ int main(){
                 	listaEmpleados.agregarHorasExtrasPorID(id, horasExtras);
 					break;
 				}
-				case 'e':{
+				case 'f':{
 					int idModificar;
                     cout << "Ingrese el ID del empleado a modificar: ";
                     cin >> idModificar;
@@ -93,7 +102,7 @@ int main(){
                     listaEmpleados.modificarEmpleadoPorID(idModificar);
 					break;
 				}
-				case 'f':{
+				case 'g':{
 					int id;
                 	double deducciones;
                 	cout << "Ingrese el ID del empleado para aplicar deducciones: ";
@@ -104,7 +113,7 @@ int main(){
                 	listaEmpleados.aplicarDeduccionesPorID(id, deducciones);
 					break;
 				}
-				case 'g':{
+				case 'h':{
 					int idEliminar;
                     cout << "Ingrese el ID del empleado a eliminar: ";
                     cin >> idEliminar;
@@ -112,7 +121,7 @@ int main(){
                     listaEmpleados.eliminarEmpleadoPorID(idEliminar);
 					break;
 				}
-				case 'h':{
+				case 'i':{
 					cout << "Hasta luego ...";
 					//En esta parte seteamos los valores de contadores a 0 que son los que controlan los do while, entonces al ponerlos en 0 sale de los 2 ciclos automaticamente
 					contador = 0;
